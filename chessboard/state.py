@@ -124,24 +124,24 @@ class CurrentGameState:
     def make_move(self, x_c, y_c, x, y):
         notation = self.board[x_c][y_c]
 
-        if len(self.all_moves) > 1 and self.board[x_c][y_c] == 'pw' and self.all_moves[-1][3] == 3 and self.all_moves[-1][1] == 1 and (y_c == self.all_moves[-1][4] + 1 or y_c == self.all_moves[-1][4] - 1) and x == 3:
-            capture_figure = self.all_moves[-1][0]
-            self.board[self.all_moves[-1][3]][self.all_moves[-1][4]] = None
-            self.board[x][y] = notation
-            self.board[x_c][y_c] = None
-            print('en passant w')
-            self.valid_moves.clear()
-            self.all_moves.append([notation, x_c, y_c, x, y, capture_figure, 'en_passant_w'])
-
-        elif self.board[x][y] == 'pb' and self.all_moves[-1][3] == 4 and self.all_moves[-1][1] == 6 and (
-                y_c == self.all_moves[-1][4] + 1 or y_c == self.all_moves[-1][4] - 1):
-            capture_figure = self.all_moves[-1][0]
-            self.board[self.all_moves[-1][3]][self.all_moves[-1][4]] = None
-            self.board[x][y] = notation
-            self.board[x_c][y_c] = None
-            print('en passant b')
-            self.valid_moves.clear()
-            self.all_moves.append([notation, x_c, y_c, x, y, capture_figure, 'en_passant_b'])
+        # if len(self.all_moves) > 1 and self.board[x_c][y_c] == 'pw' and self.all_moves[-1][3] == 3 and self.all_moves[-1][1] == 1 and (y_c == self.all_moves[-1][4] + 1 or y_c == self.all_moves[-1][4] - 1) and x == 3:
+        #     capture_figure = self.all_moves[-1][0]
+        #     self.board[self.all_moves[-1][3]][self.all_moves[-1][4]] = None
+        #     self.board[x][y] = notation
+        #     self.board[x_c][y_c] = None
+        #     print('en passant w')
+        #     self.valid_moves.clear()
+        #     self.all_moves.append([notation, x_c, y_c, x, y, capture_figure, 'en_passant_w'])
+        #
+        # elif self.board[x][y] == 'pb' and self.all_moves[-1][3] == 4 and self.all_moves[-1][1] == 6 and (
+        #         y_c == self.all_moves[-1][4] + 1 or y_c == self.all_moves[-1][4] - 1):
+        #     capture_figure = self.all_moves[-1][0]
+        #     self.board[self.all_moves[-1][3]][self.all_moves[-1][4]] = None
+        #     self.board[x][y] = notation
+        #     self.board[x_c][y_c] = None
+        #     print('en passant b')
+        #     self.valid_moves.clear()
+        #     self.all_moves.append([notation, x_c, y_c, x, y, capture_figure, 'en_passant_b'])
 
         if self.board[x][y] is not None:
             if notation[0] == 'p' and (x == 0 or x == 7):
